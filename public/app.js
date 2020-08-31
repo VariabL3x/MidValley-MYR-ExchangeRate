@@ -4,11 +4,12 @@ const infoEle = document.querySelector('#info');
 function setExchangeRate(rates){
     const USD = rates[0];
     rates.forEach(rate => {
-        const optionEle = document.createElement('option');
-        optionEle.setAttribute('value',rate.Currency);
-        optionEle.textContent = rate.Currency;
-        currencyEle.append(optionEle);
-        
+        if(rate.Currency){
+            const optionEle = document.createElement('option');
+            optionEle.setAttribute('value',rate.Currency);
+            optionEle.textContent = rate.Currency;
+            currencyEle.append(optionEle);
+        }
     });
     currencyEle.addEventListener('change',(event)=>{
         const currency = event.target.value;
